@@ -15,6 +15,21 @@ class Singleton {
     }
 }
 
+class SynchronizedSingleton {
+    private static SynchronizedSingleton singletonObj = null;
+
+    private SynchronizedSingleton() {
+        System.out.println("Singleton Created");
+    }
+
+    synchronized public static SynchronizedSingleton createInstance() {
+        if (singletonObj == null) {
+            singletonObj = new SynchronizedSingleton();
+        }
+        return singletonObj;
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
         Singleton singleton_1 = Singleton.Singleton();
@@ -28,5 +43,21 @@ public class Main {
         System.out.println(singleton_1.string);
         System.out.println(singleton_2.string);
         System.out.println(singleton_3.string);
+
+        // ThreadProofSingleton
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SynchronizedSingleton.createInstance();
+
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SynchronizedSingleton.createInstance();
+
+            }
+        });
     }
 }
