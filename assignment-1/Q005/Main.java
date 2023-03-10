@@ -6,17 +6,20 @@ public class Main {
         System.out.println(c);
     }
 }
+
 class A {
-    A(){
+    A() {
         System.out.println("Constructor of A called");
     }
 }
+
 class B {
-    B(){
+    B() {
         System.out.println("Constructor of B called");
 
     }
 }
+
 class C extends A {
     B b = new B();
 }

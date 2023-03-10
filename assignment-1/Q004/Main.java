@@ -7,7 +7,7 @@ class Singleton {
     private Singleton() {
     }
 
-    public static Singleton Singleton() {
+    public static Singleton createInstance() {
         if (singletonInstance == null) {
             singletonInstance = new Singleton();
         }
@@ -32,9 +32,9 @@ class SynchronizedSingleton {
 
 public class Main {
     public static void main(String[] args) {
-        Singleton singleton_1 = Singleton.Singleton();
-        Singleton singleton_2 = Singleton.Singleton();
-        Singleton singleton_3 = Singleton.Singleton();
+        Singleton singleton_1 = Singleton.createInstance();
+        Singleton singleton_2 = Singleton.createInstance();
+        Singleton singleton_3 = Singleton.createInstance();
         singleton_2.string = "Modified through singleton_2";
         System.out.println(singleton_1.string);
         System.out.println(singleton_2.string);
@@ -58,6 +58,6 @@ public class Main {
                 SynchronizedSingleton.createInstance();
 
             }
-        });
+        }).start();
     }
 }

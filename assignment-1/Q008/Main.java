@@ -18,6 +18,7 @@ public class Main {
         System.out.println(dynamicStack.pop());
         System.out.println(dynamicStack.pop());
         System.out.println(dynamicStack.pop());
+        // System.out.println(dynamicStack.pop()); // Stack Underflow
     }
 }
 
@@ -62,11 +63,6 @@ class DynamicStack implements Stack {
         this.stack = Arrays.copyOf(this.stack, this.stackSize);
     }
 
-    private void decreaseStackSize() {
-        this.stackSize--;
-        this.stack = Arrays.copyOf(this.stack, this.stackSize);
-    }
-
     @Override
     public void push(int x) {
         if (this.top + 1 == stackSize) {
@@ -78,7 +74,8 @@ class DynamicStack implements Stack {
     @Override
     public int pop() {
         if (this.top == -1) {
-            decreaseStackSize();
+            System.out.println("Stack Underflow");
+            return -1;
         }
         return this.stack[top--];
     }
