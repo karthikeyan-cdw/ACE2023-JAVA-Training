@@ -1,4 +1,4 @@
-package Q003;
+package Q103;
 
 // Program to demonstrate pass by value and pass by reference
 public class Main {

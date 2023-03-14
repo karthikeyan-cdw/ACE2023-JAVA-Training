@@ -1,4 +1,4 @@
-package Q004;
+package Q104;
 
 class Singleton {
     private static Singleton singletonInstance = null;

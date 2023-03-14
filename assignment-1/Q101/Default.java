@@ -1,4 +1,4 @@
-package Q001;
+package Q101;
 
 // Program to print default values of primitive values
 public class Default {

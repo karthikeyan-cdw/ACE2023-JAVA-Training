@@ -1,4 +1,4 @@
-package Q007;
+package Q107;
 
 import java.lang.Math;
 
